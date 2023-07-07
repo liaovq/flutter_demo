@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
+      - id: get-date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
       - uses: actions/cache@v2
         with:
           path: ${{ runner.tool_cache }}/flutter
