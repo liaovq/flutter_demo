@@ -15,10 +15,6 @@ jobs:
         with:
           java-version: '12.x'
 
-      - uses: subosito/flutter-action@v1
-        with:
-            channel: 'stable'
-
       - name: Cache Flutter SDK
         uses: actions/cache@v2
         with:
@@ -26,6 +22,10 @@ jobs:
           key: ${{ runner.os }}-flutter-${{ hashFiles('**/flutter/bin/cache/**') }}
           restore-keys: |
             ${{ runner.os }}-flutter-
+
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
 
       - name: Cache Dart dependencies
         uses: actions/cache@v2
